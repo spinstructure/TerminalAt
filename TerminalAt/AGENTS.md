@@ -84,7 +84,7 @@ Unless the task explicitly changes them, preserve these behaviors:
 GitHub Actions verifies compilation on macOS but does not exercise the interactive GUI. Changes involving window behavior, keyboard focus, drag-and-drop, Spotlight result quality, or Terminal launching still require a manual macOS smoke test.
 ## Attribution and disclaimer invariants
 
-- Preserve the standard About-panel credit exactly as: `Made by Vivek Saxena using ChatGPT/Codex.` unless the repository owner explicitly asks to change it.
+- Preserve the About-window credit exactly as: `Made by Vivek Saxena using ChatGPT/Codex.` unless the repository owner explicitly asks to change it.
 - Preserve `DISCLAIMER.md` and the README disclaimer section unless the repository owner explicitly asks to revise or remove them.
-- User-visible releases should keep the About panel's displayed version synchronized with `Info.plist` / `VERSION`.
+- User-visible releases should keep the About window's displayed version synchronized with `Info.plist` / `VERSION`.
 

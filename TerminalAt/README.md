@@ -148,7 +148,7 @@ If Spotlight has not indexed a directory, use `⌘O` or enter its exact path ins
 
 ## About TerminalAt
 
-Choose **TerminalAt → About TerminalAt** from the macOS menu bar to open the standard macOS About panel. TerminalAt explicitly supplies the credit **“Made by Vivek Saxena using ChatGPT/Codex.”** together with the use-at-your-own-risk/no-liability notice, so the information does not depend on a separate custom About view.
+Choose **TerminalAt → About TerminalAt** from the macOS menu bar to open the app's About window. It shows the installed version, a brief description, the author credit, and the use-at-your-own-risk notice.
 
 ## Build without installing
 
@@ -207,6 +207,7 @@ TerminalAt/
 │   └── workflows/
 │       └── build.yml
 ├── Sources/
+│   ├── AboutView.swift
 │   ├── AppModel.swift
 │   ├── ContentView.swift
 │   ├── FolderRecord.swift

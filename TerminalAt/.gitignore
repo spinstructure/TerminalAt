@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build products
+.build/
+build/
+dist/
+*.app
+*.dSYM/
+*.zip
+
+# Swift / Xcode local state
+.swiftpm/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# Editor / local tooling
+.vscode/
+.idea/
+*.swp
+*~

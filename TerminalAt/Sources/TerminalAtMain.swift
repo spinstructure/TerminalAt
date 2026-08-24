@@ -14,6 +14,7 @@ struct TerminalAtMain {
 
 final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var window: NSWindow!
+    private var aboutWindow: NSWindow?
     private let model = AppModel()
     private var hotKeyManager: HotKeyManager?
 
@@ -97,28 +98,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
 
     @objc private func showAboutWindow() {
-        let credit = "Made by Vivek Saxena using ChatGPT/Codex."
-        let disclaimer = "TerminalAt is provided as-is. The author assumes no responsibility or liability for damage, data loss, system issues, or other consequences arising from its use. Use TerminalAt at your own risk."
-
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        paragraphStyle.paragraphSpacing = 8
-
-        let credits = NSAttributedString(
-            string: "\(credit)\n\n\(disclaimer)",
-            attributes: [
-                .font: NSFont.systemFont(ofSize: 12),
-                .foregroundColor: NSColor.labelColor,
-                .paragraphStyle: paragraphStyle
-            ]
-        )
+        if aboutWindow == nil {
+            let hostingController = NSHostingController(rootView: AboutView())
+            let panel = NSWindow(contentViewController: hostingController)
+            panel.title = "About TerminalAt"
+            panel.styleMask = [.titled, .closable]
+            panel.isReleasedWhenClosed = false
+            panel.center()
+            aboutWindow = panel
+        }
 
         NSApp.activate(ignoringOtherApps: true)
-        NSApp.orderFrontStandardAboutPanel(options: [
-            .applicationName: "TerminalAt",
-            .credits: credits,
-            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): credit
-        ])
+        aboutWindow?.center()
+        aboutWindow?.makeKeyAndOrderFront(nil)
     }
 
     private func buildMainMenu() {

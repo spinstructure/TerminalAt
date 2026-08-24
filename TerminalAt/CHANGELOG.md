@@ -1,15 +1,5 @@
 # Changelog
 
-## 1.0.2 - 2026-08-24
-
-### Fixed
-
-- Replaced the separate SwiftUI About window with AppKit's standard macOS About panel.
-- The About panel now explicitly displays **Made by Vivek Saxena using ChatGPT/Codex.**
-- The About panel also explicitly displays the no-liability/use-at-your-own-risk notice.
-- Added `NSHumanReadableCopyright` with the requested credit as an additional bundle-level fallback.
-
-
 All notable changes to TerminalAt should be recorded here.
 
 The project uses semantic-style version numbers in the `VERSION` file.
