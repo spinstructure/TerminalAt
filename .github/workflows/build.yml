@@ -1,0 +1,36 @@
+name: macOS build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Show toolchain
+        run: |
+          sw_vers
+          xcrun swiftc --version
+
+      - name: Build TerminalAt
+        run: ./build.sh
+
+      - name: Archive application
+        run: ditto -c -k --keepParent build/TerminalAt.app TerminalAt.app.zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: TerminalAt-macOS
+          path: TerminalAt.app.zip
+          if-no-files-found: error
